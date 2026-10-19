@@ -6,6 +6,30 @@
 - 本地位置：`E:\山野拾光\`
 - 本地预览：直接双击 `index.html`，或 `python -m http.server 8000` 后打开 `http://localhost:8000`
 
+## 云端部署架构（2026-10-19 迁云后）
+
+站点源码已托管到 GitHub，**改内容 → push → 自动构建上线**，发布不再依赖这台电脑开机。
+
+| 入口 | 地址 | 说明 |
+|---|---|---|
+| 平台托管（现用） | <https://shanye-glow.app.workbuddy.host/> | 原有入口，仍可用 |
+| 源码仓库 | <https://github.com/cncq007/shanye-glow> | `main` 分支，公开仓库，69 个文件（视频已压到 25MiB 以内） |
+| GitHub Pages（兜底） | <https://cncq007.github.io/shanye-glow/> | 零配置直出，国内访问偏慢（实测约 50KB/s） |
+| EdgeOne Makers（主站） | 项目 `shanye-glow`，腾讯云控制台 → EdgeOne → Makers | 构建全留空、输出目录 `/`、加速区域「**全球可用区（不含中国大陆）**」 |
+| 正式域名 | `shanyeglow.cn` | 腾讯云注册，实名审核通过后绑定到 EdgeOne |
+
+**两条改内容的路径**
+
+1. **云端改（不需要这台电脑）**：GitHub 网页打开 `assets/data/content.js` → 编辑 → Commit，或直接上传图片到 `assets/img/gallery/`。推送后 EdgeOne 与 GitHub Pages 都会自动重新部署。
+2. **本地改（有面板，更省事）**：双击 `维护面板.bat` 改完保存，然后 `git add -A && git commit -m "..." && git push` 推上去。
+
+**必须知道的几条约束**
+
+- **单文件 25MiB 上限**：EdgeOne / Cloudflare Pages 都有这条硬限制。7 条视频已从 4K 母版用两遍编码重压到 19.4–24.2MiB（720p），**以后新增视频务必控制在 25MiB 以内**，工具见 `_tools/recloud_encode.py`。
+- **EdgeOne 默认域名不能当稳定入口**：无论选哪个加速区域，平台分配的项目域名在大陆都有访问限制（3 小时预览链接 / 直接 401）。只有绑**自定义域名**才是稳定通道。
+- **加速区域必须选「不含中国大陆」**：选含大陆区域后，绑自定义域名需要 ICP 备案；不含大陆区域免备案。
+- `_admin/`、`_tools/`、`维护面板.bat` 已写进 `.gitignore`，不进云端仓库。
+
 图片板块由三部分组成（沿用「山河入镜」站的设计语言）：
 
 1. **胶片走马灯** —— 全部作品做成一卷深色胶片横向滚动（齿孔 + 片名），悬停暂停，点击任一帧跳到观片台对应作品
