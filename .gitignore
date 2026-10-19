@@ -1,0 +1,13 @@
+# 本地工具与面板不进云端仓库（云端站点用不到，且含本机路径日志）
+_admin/
+_tools/
+维护面板.bat
+
+# 系统杂项
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 工作区标记
+.workbuddy/
+*.genie

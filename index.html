@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="山野拾光 · 户外旅行影像作品集：航拍川西与云南的山野、湖泊与村落。" name="description"/>
+<meta content="no-referrer" name="referrer"/>
+<link href="assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<title>山野拾光 · 个人作品集</title>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body style="">
+<a class="skip-link" href="#main">跳到主内容</a>
+<!-- ===== Header ===== -->
+<header class="site-header is-scrolled" id="siteHeader">
+<div class="container site-header__inner">
+<a aria-label="回到顶部" class="brand" href="#top">
+<svg aria-hidden="true" class="brand__mark" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="20">
+<path d="M3 19L9.5 7l4 7.2L16 10l5 9H3z"></path>
+<circle cx="17.2" cy="5.8" r="2"></circle>
+</svg>
+<span class="brand__name" id="brandName">山野拾光</span>
+</a>
+<nav aria-label="主导航" class="nav">
+<a class="nav__link" href="#gallery">影集</a>
+<a class="nav__link" href="#film">影像</a>
+<a class="nav__link" href="#about">关于</a>
+</nav>
+<button aria-label="切换深浅主题" aria-pressed="false" class="theme-toggle" id="themeToggle" type="button">
+<svg aria-hidden="true" class="icon-moon" fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" viewBox="0 0 24 24" width="17">
+<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"></path>
+</svg>
+<svg aria-hidden="true" class="icon-sun" fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" viewBox="0 0 24 24" width="17">
+<circle cx="12" cy="12" r="4"></circle>
+<path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l1.4 1.4"></path>
+</svg>
+</button>
+</div>
+</header>
+<main id="main">
+<!-- ===== Hero ===== -->
+<section aria-labelledby="heroTitle" class="hero" id="top">
+<div aria-hidden="true" class="hero__media">
+<img alt="" height="1125" id="heroImage" src="assets/img/gallery/g11-full.jpg" style="transform: scale(1.06) translateY(157.2px);" width="2000"/>
+</div>
+<div aria-hidden="true" class="hero__scrim"></div>
+<div class="container hero__content">
+<p class="hero__eyebrow reveal is-visible" id="heroEyebrow">MOUNTAINS · LAKES · LIGHT</p>
+<h1 class="hero__title reveal is-visible" id="heroTitle" style="--reveal-delay: 80ms">山野拾光</h1>
+<p class="hero__sub reveal is-visible" id="heroSub" style="--reveal-delay: 160ms;">攀上山岭，看更远的景；走进旷野，吹自然的风。</p>
+<div aria-label="拍摄信息" class="hero__meta reveal is-visible" id="heroMeta" role="list" style="--reveal-delay: 240ms"></div>
+</div>
+<a aria-label="向下滚动" class="hero__scroll" href="#stats">
+<span>SCROLL</span>
+<span aria-hidden="true" class="hero__scroll-line"></span>
+</a>
+</section>
+<!-- ===== 统计条 ===== -->
+<section aria-label="站点数据" class="stats" id="stats">
+<div class="container stats__grid" id="statsGrid"></div>
+</section>
+<!-- ===== 01 影集（图片） ===== -->
+<section aria-labelledby="galleryTitle" class="section" id="gallery">
+<div class="container">
+<header class="section-head reveal is-visible">
+<span class="section-head__no" id="galleryNo">01</span>
+<h2 class="section-head__title" id="galleryTitle">影 集</h2>
+<p class="section-head__desc" id="galleryDesc">航拍视角下的山野、湖泊、石林与村落，全是风景，没有打扰。方向键翻页，空格自动播放，F 全屏；下方作品墙点击任意一张进入大图浏览。</p>
+</header>
+</div>
+<!-- 胶片走马灯：全作品横向滚动条幅（自动滚动，悬停暂停，点击跳转观片台） -->
+<div aria-label="作品胶片走马灯" class="filmstrip reveal is-visible">
+<div class="filmstrip__track" id="filmTrack"></div>
+</div>
+<div class="container">
+<div aria-label="作品分类筛选" class="filter-bar reveal is-visible" id="filterBar" role="group"></div>
+<!-- 观片台：大图舞台 + 缩略图条 -->
+<div class="viewer reveal is-visible" id="viewer">
+<div aria-label="作品观片台，左右方向键翻页" aria-roledescription="幻灯片" class="viewer__stage" id="viewerStage" role="group" tabindex="0">
+<div class="viewer__layer" id="vlA">
+<img alt="" class="viewer__img kb-2" id="viewerImgA" src="assets/img/gallery/g10-full.jpg"/>
+</div>
+<div class="viewer__layer is-live" id="vlB">
+<img alt="" aria-hidden="true" class="viewer__img kb-3" id="viewerImgB" src="assets/img/gallery/g09-full.jpg"/>
+</div>
+<span aria-hidden="true" class="viewer__mark">山野拾光</span>
+<span aria-hidden="true" class="viewer__scrim"></span>
+<span class="viewer__info">
+<span class="viewer__count" id="viewerCount">09 / 24</span>
+<span class="viewer__title" id="viewerTitle">云压群山</span>
+<span class="viewer__place" id="viewerPlace">川西 · 玉科草原</span>
+<span class="viewer__exif" id="viewerExif"></span>
+</span>
+<span aria-hidden="true" class="viewer__load" id="viewerLoad"><i></i></span>
+<span aria-hidden="true" class="viewer__progress" id="viewerProgress"><i></i></span>
+<button aria-label="上一张" class="viewer__arrow viewer__arrow--prev" data-vw-prev="" type="button">
+<svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+<button aria-label="下一张" class="viewer__arrow viewer__arrow--next" data-vw-next="" type="button">
+<svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<span class="viewer__bar">
+<button aria-label="自动播放" aria-pressed="false" class="viewer__btn" data-vw-play="" title="自动播放（空格）" type="button">
+<svg aria-hidden="true" class="viewer__icon viewer__icon--play" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M8 5.5v13l11-6.5z"></path></svg>
+<svg aria-hidden="true" class="viewer__icon viewer__icon--pause" fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M8 5h3v14H8zM13 5h3v14h-3z"></path></svg>
+</button>
+<button aria-label="全屏观看" aria-pressed="false" class="viewer__btn" data-vw-full="" title="全屏观看（F）" type="button">
+<svg aria-hidden="true" class="viewer__icon viewer__icon--enter" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="18"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg>
+<svg aria-hidden="true" class="viewer__icon viewer__icon--exit" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="18"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"></path></svg>
+</button>
+</span>
+</div>
+<div aria-label="作品缩略图，点击切换" class="thumbs" id="thumbs" role="listbox"></div>
+<p class="viewer__hint">← → 翻页 · 空格 自动播放 · F 全屏 · 点击缩略图或下方作品墙直达</p>
+<!-- 拼贴墙：全部作品错落排布 -->
+<div class="mosaic-head">
+<span class="mosaic-head__t">全部作品</span>
+<span class="mosaic-head__l">ALL WORKS · 点击进入大图浏览</span>
+</div>
+<div class="mosaic" id="mosaic"></div>
+</div>
+</div>
+</section>
+<!-- ===== 02 影像（视频） ===== -->
+<section aria-labelledby="videoTitle" class="section section--alt" id="film">
+<div class="container">
+<header class="section-head reveal is-visible">
+<span class="section-head__no" id="videoNo">02</span>
+<h2 class="section-head__title" id="videoTitle">影 像</h2>
+<p class="section-head__desc" id="videoDesc">一段多地航拍混剪长片打头，加六段川滇自驾速览，每段两分钟。点击封面即可在页面内播放，支持拖动进度。</p>
+</header>
+<div class="video-grid" id="videoGrid"></div>
+</div>
+</section>
+<!-- ===== 03 关于 ===== -->
+<section aria-labelledby="aboutTitle" class="section" id="about">
+<div class="container">
+<header class="section-head reveal is-visible">
+<span class="section-head__no" id="aboutNo">03</span>
+<h2 class="section-head__title" id="aboutTitle">关 于</h2>
+</header>
+<div class="about-grid">
+<div class="about-text reveal is-visible" id="aboutText"></div>
+<div class="fact-table reveal is-visible" id="factTable" style="--reveal-delay: 120ms"></div>
+</div>
+</div>
+</section>
+<!-- ===== 04 联系 ===== -->
+<section aria-labelledby="contactTitle" class="section section--alt contact-wrap" id="contact">
+<div class="container">
+<h2 class="contact-title reveal" id="contactTitle">一起出发</h2>
+<p class="contact-sub reveal" id="contactSub" style="--reveal-delay: 80ms">想交流路线、装备或约拍，欢迎来聊聊</p>
+<div class="contact-links reveal" id="contactLinks" style="--reveal-delay: 160ms"></div>
+</div>
+</section>
+</main>
+<!-- ===== 页脚 ===== -->
+<footer class="site-footer">
+<div class="container site-footer__inner">
+<span id="footText">© 2026 山野拾光 · 影像与文字均为原创，转载请先问一声</span>
+<a class="site-footer__top" href="#top">
+<svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewBox="0 0 24 24" width="14"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+        回到顶部
+      </a>
+</div>
+</footer>
+<!-- ===== 灯箱 ===== -->
+<div aria-label="媒体查看器" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
+<span class="lightbox__count" id="lbCount"></span>
+<div class="lightbox__stage" id="lbStage"></div>
+<button aria-label="关闭" class="lightbox__close" id="lbClose" type="button">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewBox="0 0 24 24" width="18"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+</button>
+<button aria-label="上一张" class="lightbox__nav lightbox__nav--prev is-hidden" id="lbNavPrev" type="button">
+<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg>
+</button>
+<button aria-label="下一张" class="lightbox__nav lightbox__nav--next is-hidden" id="lbNavNext" type="button">
+<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="20"><path d="M9 5l7 7-7 7"></path></svg>
+</button>
+<div class="lightbox__bar">
+<span class="lightbox__title" id="lbTitle"></span>
+<span class="lightbox__meta" id="lbMeta"></span>
+</div>
+</div>
+<!-- 内容清单：整站文案 / 图片 / 视频都在这里配置 -->
+<script src="assets/data/content.js"></script>
+<script defer="" src="assets/js/main.js"></script>
+</body></html>
