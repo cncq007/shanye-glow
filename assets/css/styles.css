@@ -815,6 +815,38 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .video-card--feature .video-card__frame { aspect-ratio: 16 / 9; }
 }
 
+/* ---- 占位卡（content.js 里 src 为空即渲染）：虚线空位，等下一次上新 ---- */
+.video-card--placeholder { cursor: default; }
+.video-card--placeholder:hover {
+  box-shadow: none;
+  transform: none;
+}
+.video-card--placeholder__frame {
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(45deg,
+      transparent 0 12px,
+      var(--accent-soft) 12px 24px),
+    var(--bg-subtle);
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.video-card--placeholder .video-card__play {
+  color: var(--ink-3);
+  background: transparent;
+  border-color: var(--line-strong);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.video-card--placeholder__mark {
+  position: absolute; top: 12px; left: 14px;
+  font-family: var(--font-mono);
+  font-size: .68rem; letter-spacing: .28em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+
 /* ==================== 8. 关于 & 联系 ==================== */
 .about-grid {
   display: grid;

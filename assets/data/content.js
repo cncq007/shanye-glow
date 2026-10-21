@@ -32,7 +32,7 @@ window.SITE_DATA = {
       },
       {
         "label": "旅行影像",
-        "value": "07",
+        "value": "01",
         "unit": "部"
       },
       {
@@ -51,7 +51,7 @@ window.SITE_DATA = {
       "no": "02",
       "title": "影 像",
       "titleEn": "FILMS",
-      "desc": "一段多地航拍混剪长片打头，加六段川滇自驾速览，每段两分钟。点击封面即可在页面内播放，支持拖动进度。"
+      "desc": "以一段多地航拍混剪长片打头；往期川滇自驾速览片段正在重新整理，新片将陆续在下方空位上架。点击封面即可在页面内播放，支持拖动进度。"
     },
     "about": {
       "no": "03",
@@ -133,14 +133,16 @@ window.SITE_DATA = {
     { id: "g24", title: "湖畔人家", category: "water", place: "云南 · 大理 · 洱海", params: "", focal: "", w: 2000, h: 1125, thumb: "assets/img/gallery/g24-t.jpg", full: "assets/img/gallery/g24-full.jpg" }
   ],
 
-  /* 视频清单：duration 显示用时长，poster 为封面图，src 为视频文件 */
+  /* 视频清单：duration 显示用时长，poster 为封面图，src 为视频文件。
+     ★ 占位卡约定：src 与 poster 留空（""）即为占位卡——只占格子不播放，
+       下次要上新片时在维护面板或本文件里把 src/poster/duration 填上即可。 */
   videos: [
     { id: "v07", title: "山河混剪 · 往期精选", place: "青海 · 贵州 · 西藏", duration: "04:24", poster: "assets/video/v07.jpg", src: "assets/video/v07.mp4", featured: true },
-    { id: "v01", title: "雨雾中的理小路", place: "川西 · 阿坝", duration: "02:00", poster: "assets/video/v01.jpg", src: "assets/video/v01.mp4" },
-    { id: "v02", title: "玉科草原的阳光", place: "川西 · 甘孜", duration: "02:00", poster: "assets/video/v02.jpg", src: "assets/video/v02.mp4" },
-    { id: "v03", title: "驰行千里到乡城", place: "川西 · 甘孜", duration: "02:00", poster: "assets/video/v03.jpg", src: "assets/video/v03.mp4" },
-    { id: "v04", title: "香格里拉的烛光晚餐", place: "云南 · 迪庆", duration: "02:00", poster: "assets/video/v04.jpg", src: "assets/video/v04.mp4" },
-    { id: "v05", title: "丽江两日游", place: "云南 · 丽江", duration: "02:00", poster: "assets/video/v05.jpg", src: "assets/video/v05.mp4" },
-    { id: "v06", title: "在大理看洱海", place: "云南 · 大理", duration: "02:00", poster: "assets/video/v06.jpg", src: "assets/video/v06.mp4" }
+    { id: "vp01", title: "片段 01 · 待更新", place: "视频整理中 · 敬请期待", duration: "", poster: "", src: "" },
+    { id: "vp02", title: "片段 02 · 待更新", place: "视频整理中 · 敬请期待", duration: "", poster: "", src: "" },
+    { id: "vp03", title: "片段 03 · 待更新", place: "视频整理中 · 敬请期待", duration: "", poster: "", src: "" },
+    { id: "vp04", title: "片段 04 · 待更新", place: "视频整理中 · 敬请期待", duration: "", poster: "", src: "" },
+    { id: "vp05", title: "片段 05 · 待更新", place: "视频整理中 · 敬请期待", duration: "", poster: "", src: "" },
+    { id: "vp06", title: "片段 06 · 待更新", place: "视频整理中 · 敬请期待", duration: "", poster: "", src: "" }
   ]
 };

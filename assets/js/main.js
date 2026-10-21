@@ -598,6 +598,23 @@
     if (!grid) return;
     grid.innerHTML = "";   // 先清空：避免与文件里可能存在的预渲染内容重复
     (DATA.videos || []).forEach(function (v) {
+      /* 占位卡：src 留空即为占位，只占格子不可播放（下次上新时填回 src/poster 即可） */
+      if (!v.src) {
+        var ph = document.createElement("div");
+        ph.className = "video-card video-card--placeholder reveal";
+        ph.setAttribute("aria-hidden", "true");
+        ph.innerHTML =
+          '<span class="video-card__frame video-card--placeholder__frame">' +
+            '<span class="video-card--placeholder__mark">COMING SOON</span>' +
+            '<span class="video-card__play" aria-hidden="true">' + PLAY_SVG + "</span>" +
+          "</span>" +
+          '<span class="video-card__body">' +
+            '<span class="video-card__title" style="display:block">' + v.title + "</span>" +
+            '<span class="video-card__place">' + (v.place || "") + "</span>" +
+          "</span>";
+        grid.appendChild(ph);
+        return;
+      }
       var card = document.createElement("button");
       card.type = "button";
       var feature = !!v.featured;
