@@ -25,7 +25,10 @@
 <a class="nav__link" href="#gallery">影集</a>
 <a class="nav__link" href="#film">影像</a>
 <a class="nav__link" href="#about">关于</a>
+<a class="nav__link" href="#vip">会员区</a>
+<a class="nav__link" href="#board">留言</a>
 </nav>
+<button aria-label="登录或注册" class="auth-chip" id="authChip" type="button">登录 / 注册</button>
 <button aria-label="切换深浅主题" aria-pressed="false" class="theme-toggle" id="themeToggle" type="button">
 <svg aria-hidden="true" class="icon-moon" fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" viewBox="0 0 24 24" width="17">
 <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"></path>
@@ -145,12 +148,64 @@
 </div>
 </div>
 </section>
-<!-- ===== 04 联系 ===== -->
-<section aria-labelledby="contactTitle" class="section section--alt contact-wrap" id="contact">
+<!-- ===== 04 会员专区 ===== -->
+<section aria-labelledby="vipTitle" class="section section--alt" id="vip">
+<div class="container">
+<header class="section-head reveal">
+<span class="section-head__no">04</span>
+<h2 class="section-head__title" id="vipTitle">会 员 专 区</h2>
+<p class="section-head__desc" id="vipDesc">注册成为会员后，可以在这里看到更多没放进公开板块的图片和影像。</p>
+</header>
+<!-- 未登录：解锁提示 -->
+<div class="vip-auth reveal" id="vipAuth">
+<div class="vip-auth__lock" aria-hidden="true">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" viewBox="0 0 24 24" width="22"><rect height="11" rx="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+</div>
+<p class="vip-auth__t">更多图片与影像，只对会员开放</p>
+<p class="vip-auth__s">注册很简单：一个昵称 + 6 位字母或数字密码，不用邮箱不用手机号。</p>
+<button class="btn-accent" id="vipTeaserBtn" type="button">登录 / 注册解锁</button>
+</div>
+<!-- 已登录：会员内容 -->
+<div class="vip-content is-hidden" id="vipContent">
+<div class="vip-sub reveal"><span class="vip-sub__t">会员图片</span><span class="vip-sub__en">MEMBER PHOTOS · 点击进入大图</span></div>
+<div class="vip-grid" id="vipPhotoGrid"></div>
+<div class="vip-sub reveal"><span class="vip-sub__t">会员影像</span><span class="vip-sub__en">MEMBER FILMS · 点击播放</span></div>
+<div class="video-grid" id="vipVideoGrid"></div>
+</div>
+</div>
+</section>
+<!-- ===== 05 联系 ===== -->
+<section aria-labelledby="contactTitle" class="section contact-wrap" id="contact">
 <div class="container">
 <h2 class="contact-title reveal" id="contactTitle">一起出发</h2>
 <p class="contact-sub reveal" id="contactSub" style="--reveal-delay: 80ms">想交流路线、装备或约拍，欢迎来聊聊</p>
 <div class="contact-links reveal" id="contactLinks" style="--reveal-delay: 160ms"></div>
+</div>
+</section>
+<!-- ===== 06 留言板 ===== -->
+<section aria-labelledby="boardTitle" class="section section--alt" id="board">
+<div class="container">
+<header class="section-head reveal">
+<span class="section-head__no">05</span>
+<h2 class="section-head__title" id="boardTitle">留 言</h2>
+<p class="section-head__desc">留言只有你自己和站长能看到，站长看到后会在这里回复你。</p>
+</header>
+<!-- 未登录：提示注册 -->
+<div class="board-login reveal" id="boardLogin">
+<p>留言板只对注册会员开放 —— <button class="board-login__btn" id="boardLoginBtn" type="button">登录 / 注册</button></p>
+</div>
+<!-- 已登录：留言表单 + 列表 -->
+<div class="board-area is-hidden" id="boardArea">
+<form class="board-form reveal" id="boardForm">
+<textarea id="boardInput" maxlength="500" rows="3" placeholder="写点什么给站长…（不公开，仅站长可见）"></textarea>
+<div class="board-form__row">
+<span class="board-count" id="boardCount">0 / 500</span>
+<button class="btn-accent" id="boardSend" type="submit">发送留言</button>
+</div>
+</form>
+<p class="board-hint is-hidden" id="boardHint"></p>
+<div class="board-list" id="boardList"></div>
+</div>
 </div>
 </section>
 </main>
@@ -182,7 +237,36 @@
 <span class="lightbox__meta" id="lbMeta"></span>
 </div>
 </div>
+<!-- ===== 登录 / 注册弹窗 ===== -->
+<div aria-labelledby="amHeading" aria-modal="true" class="auth-modal" id="authModal" role="dialog">
+<div class="auth-modal__card">
+<button aria-label="关闭" class="auth-modal__close" id="amClose" type="button">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewBox="0 0 24 24" width="16"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+</button>
+<div aria-label="登录或注册切换" class="auth-modal__tabs" role="tablist">
+<button aria-selected="true" class="auth-modal__tab" data-mode="login" role="tab" type="button">登 录</button>
+<button aria-selected="false" class="auth-modal__tab" data-mode="register" role="tab" type="button">注 册</button>
+</div>
+<h3 class="auth-modal__title" id="amHeading">成为山野拾光的会员</h3>
+<form id="amForm">
+<label class="auth-modal__field">
+<span>昵称</span>
+<input autocomplete="nickname" id="amNick" maxlength="16" placeholder="2-16 个字符，中文、字母、数字都可以" type="text"/>
+</label>
+<label class="auth-modal__field">
+<span>密码（6 位字母或数字）</span>
+<input autocomplete="current-password" id="amPwd" maxlength="6" placeholder="6 位，例如 shan66 或 520abc" type="password"/>
+</label>
+<p class="auth-modal__msg" id="amMsg" role="alert"></p>
+<button class="btn-accent auth-modal__submit" id="amSubmit" type="submit">登录</button>
+</form>
+<p class="auth-modal__hint">不用邮箱、不用手机号，注册后可以看会员专区的更多影像，也可以给站长留言。</p>
+</div>
+</div>
 <!-- 内容清单：整站文案 / 图片 / 视频都在这里配置 -->
 <script src="assets/data/content.js"></script>
+<script src="assets/data/vip.js"></script>
+<script defer="" src="assets/js/workbuddy-cloud-sdk.global.js"></script>
 <script defer="" src="assets/js/main.js"></script>
+<script defer="" src="assets/js/cloud.js"></script>
 </body></html>

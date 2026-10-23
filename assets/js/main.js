@@ -504,8 +504,8 @@
     $("#lbNavNext").classList.toggle("is-hidden", single);
   }
 
-  function openPhotoLightbox(idx) {
-    lbState.list = gal.filtered;
+  function openPhotoLightbox(idx, list) {
+    lbState.list = list || gal.filtered;
     showPhoto(idx);
     openLightboxCommon();
   }
@@ -681,6 +681,9 @@
     initReveal();
     initScrollFx();
   }
+
+  /* 会员区（cloud.js）复用灯箱：photo(idx, list) 支持传入自定义图片列表 */
+  window.SG_LIGHTBOX = { photo: openPhotoLightbox, video: openVideoLightbox };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
